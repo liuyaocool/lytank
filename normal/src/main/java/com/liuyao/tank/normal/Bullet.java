@@ -1,19 +1,22 @@
 package com.liuyao.tank.normal;
 
+import com.liuyao.tank.core.TkDir;
+import com.liuyao.tank.core.TkGroup;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Bullet extends TankParent{
 
-    public static BufferedImage bulletU = readImg("Bullet.png"),
+    public static BufferedImage bulletU = readImg("img/tank/Bullet.png"),
             bulletL = rotateImage(bulletU, -90),
             bulletR = rotateImage(bulletU, 90),
             bulletD = rotateImage(bulletU, 180);
     private static final int SPEED = 20;
 
-    private Dir dir;
+    private TkDir dir;
 
-    public Bullet(int x, int y, Dir dir, TankFrame tf, Group group) {
+    public Bullet(int x, int y, TkDir dir, TankFrame tf, TkGroup group) {
         super(tf, x, y);
         this.dir = dir;
         this.group = group;

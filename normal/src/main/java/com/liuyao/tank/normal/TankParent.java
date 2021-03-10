@@ -1,13 +1,16 @@
 package com.liuyao.tank.normal;
 
+import com.liuyao.tank.core.ImgUtil;
+import com.liuyao.tank.core.TkGroup;
+
 import java.awt.*;
 
-public abstract class TankParent extends ImgUtil{
+public abstract class TankParent extends ImgUtil {
 
     protected TankFrame tankFrame;
     protected int x, y, width, height;
     protected boolean living = true;
-    protected Group group;
+    protected TkGroup group;
     protected Rectangle rectangle;
 
     public TankParent(TankFrame tankFrame, int x, int y) {
@@ -56,7 +59,7 @@ public abstract class TankParent extends ImgUtil{
         return living;
     }
 
-    public Group getGroup() {
+    public TkGroup getGroup() {
         return group;
     }
 

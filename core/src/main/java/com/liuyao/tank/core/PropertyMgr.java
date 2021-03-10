@@ -1,4 +1,4 @@
-package com.liuyao.tank.normal;
+package com.liuyao.tank.core;
 
 import java.io.IOException;
 import java.util.Properties;

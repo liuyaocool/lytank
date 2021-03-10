@@ -1,5 +1,8 @@
 package com.liuyao.tank.normal;
 
+import com.liuyao.tank.core.TkDir;
+import com.liuyao.tank.core.TkGroup;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
@@ -7,30 +10,30 @@ import java.util.Random;
 public class Tank extends TankParent {
 
     private static final int SPEED = 5;
-    public static BufferedImage goodTankU = readImg("GoodTank.png"),
+    public static BufferedImage goodTankU = readImg("img/tank/GoodTank.png"),
             goodTankL = rotateImage(goodTankU, -90),
             goodTankR = rotateImage(goodTankU, 90),
             goodTankD = rotateImage(goodTankU, 180);
-    public static BufferedImage badTankU = readImg("BadTank.png"),
+    public static BufferedImage badTankU = readImg("img/tank/BadTank.png"),
             badTankL = rotateImage(badTankU, -90),
             badTankR = rotateImage(badTankU, 90),
             badTankD = rotateImage(badTankU, 180);
 
 
-    private Dir dir = Dir.DOWN;
+    private TkDir dir = TkDir.DOWN;
     private boolean moving = true;
     private Random random = new Random();
 
-    public Dir getDir() { return dir; }
-    public void setDir(Dir dir) { this.dir = dir; }
+    public TkDir getDir() { return dir; }
+    public void setDir(TkDir dir) { this.dir = dir; }
     public boolean getMoving() { return moving; }
     public void setMoving(boolean moving) { this.moving = moving; }
 
-    public Tank(int x, int y, Dir dir, TankFrame tf, Group group) {
+    public Tank(int x, int y, TkDir dir, TankFrame tf, TkGroup group) {
         super(tf, x, y);
         this.dir = dir;
         this.group = group;
-        if (Group.GOOD == this.group){
+        if (TkGroup.GOOD == this.group){
             this.moving = false;
         }
     }
@@ -76,9 +79,9 @@ public class Tank extends TankParent {
             case UP: y -= SPEED; break;
             case DOWN: y += SPEED; break;
         }
-        if (this.group == Group.BAD && random.nextInt(100) > 95) this.fire();
+        if (this.group == TkGroup.BAD && random.nextInt(100) > 95) this.fire();
 
-        if (this.group == Group.BAD && random.nextInt(100) > 95) randomDir();
+        if (this.group == TkGroup.BAD && random.nextInt(100) > 95) randomDir();
 
         // 边界检测
         boundsCheck();
@@ -95,7 +98,7 @@ public class Tank extends TankParent {
     }
 
     private void randomDir() {
-        this.dir = Dir.values()[random.nextInt(4)];
+        this.dir = TkDir.values()[random.nextInt(4)];
     }
 
     public void fire() {

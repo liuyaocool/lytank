@@ -1,34 +1,39 @@
-package com.liuyao.tank.normal;
+package com.liuyao.tank;
 
+import com.liuyao.tank.Strategy.FacFireStrategy1;
+import com.liuyao.tank.Strategy.FacFireStrategy4;
 import com.liuyao.tank.core.TkDir;
-import com.liuyao.tank.core.TkGroup;
+import com.liuyao.tank.factory.*;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.*;
+import java.util.ArrayList;
 
-public class TankFrame extends Frame {
+public class FacTankFrame extends Frame {
 
     public static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
-    private Tank myTank = new Tank(200, 200, TkDir.DOWN, this, TkGroup.GOOD);
-    public ArrayList<Bullet> bullets = new ArrayList<>();
-    public ArrayList<Tank> tanks = new ArrayList<>();
-    public ArrayList<Explode> explodes = new ArrayList<>();
+    private FacTank myTank;
+    // 只是用来保存面板的东西
+    public ArrayList<FacBullet> bullets = new ArrayList<>();
+    public ArrayList<FacTank> tanks = new ArrayList<>();
+    public ArrayList<FacExplode> explodes = new ArrayList<>();
 
-    public TankFrame() throws HeadlessException {
+    public FacTankFrame(FacSkinFactory factory) throws HeadlessException {
         this.setSize(GAME_WIDTH, GAME_HEIGHT);
         this.setResizable(false);
-        this.setTitle("tank war");
+        this.setTitle("tankf war(fac)");
         this.setVisible(true);
 
         this.addKeyListener(new TankKeyAdapter());
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) { System.exit(0); }
         });
+
+        myTank = factory.createTank(this);
     }
 
     Image offScreenImage = null;
@@ -95,7 +100,7 @@ public class TankFrame extends Frame {
         boolean bU = false;
         boolean bR = false;
         boolean bD = false;
-        
+
         @Override
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
@@ -116,6 +121,8 @@ public class TankFrame extends Frame {
                 case KeyEvent.VK_RIGHT: bR = false; break;
                 case KeyEvent.VK_DOWN: bD = false; break;
                 case KeyEvent.VK_Q: myTank.fire();break;
+                case KeyEvent.VK_1: myTank.setBulletStrategy(FacFireStrategy1.neww());break;
+                case KeyEvent.VK_2: myTank.setBulletStrategy(FacFireStrategy4.neww());break;
                 default: break;
             }
             setMainDir();

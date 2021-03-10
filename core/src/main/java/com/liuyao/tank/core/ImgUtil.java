@@ -1,4 +1,4 @@
-package com.liuyao.tank.normal;
+package com.liuyao.tank.core;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -7,10 +7,10 @@ import java.io.IOException;
 
 public class ImgUtil {
 
-    public static BufferedImage readImg(String filename) {
+    public static BufferedImage readImg(String filepath) {
         try {
             return ImageIO.read(ImgUtil.class.getClassLoader()
-                    .getResourceAsStream("img/tank/" + filename));
+                    .getResourceAsStream(filepath));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,12 +11,14 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>1.8</java.version>
+<!--        <java.version>11</java.version>-->
     </properties>
 
     <modules>
+        <module>core</module>
+
         <module>normal</module>
-        <module>tank-source</module>
+        <module>factory-strategy</module>
         <!-- <module>factory-strategy</module> -->
     </modules>
 
@@ -45,9 +47,18 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
         <configuration>
-          <release>10</release>
+          <release>11</release>
         </configuration>
       </plugin>
+<!--        <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-compiler-plugin</artifactId>-->
+<!--            <configuration>-->
+<!--                <source>11</source>-->
+<!--                <target>11</target>-->
+<!--                <encoding>utf-8</encoding>-->
+<!--            </configuration>-->
+<!--        </plugin>-->
     </plugins>
   </build>
   
