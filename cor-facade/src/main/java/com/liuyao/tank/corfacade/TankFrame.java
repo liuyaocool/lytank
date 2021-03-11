@@ -1,6 +1,7 @@
 package com.liuyao.tank.corfacade;
 
 import com.liuyao.tank.core.TkDir;
+import com.liuyao.tank.corfacade.Entity.Tank;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;

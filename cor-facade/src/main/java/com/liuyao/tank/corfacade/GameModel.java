@@ -1,7 +1,11 @@
 package com.liuyao.tank.corfacade;
 
+import com.liuyao.tank.core.PropertyMgr;
 import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
+import com.liuyao.tank.corfacade.Entity.GameObject;
+import com.liuyao.tank.corfacade.Entity.Tank;
+import com.liuyao.tank.corfacade.cor.ColliderChain;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,12 +14,27 @@ import java.util.List;
 public class GameModel {
 
     private static final GameModel INSTANCE = new GameModel();
+    static {
+        INSTANCE.init();
+    }
 
-    public Tank myTank = new Tank(200, 200, TkDir.DOWN, TkGroup.GOOD);
+    public Tank myTank;
 
     private List<GameObject> objects = new ArrayList<>();
+    ColliderChain chain = new ColliderChain();
 
     private GameModel(){}
+
+    private void init() {
+        myTank= new Tank(200, 200, TkDir.DOWN, TkGroup.GOOD);
+//        add(myTank);
+
+        int tankcount = Integer.parseInt(PropertyMgr.getProperty("initTankCount"));
+        // 初始化敌方坦克
+        for (int i = 0; i < tankcount; i++) {
+            new Tank(100 + i * 80, 100, TkDir.DOWN, TkGroup.BAD);
+        }
+    }
 
     public static GameModel getInstance() {
         return INSTANCE;
@@ -26,7 +45,8 @@ public class GameModel {
     }
 
     public void remove(GameObject o) {
-        objects.remove(this);
+        boolean remove = objects.remove(o);
+        if (remove && o instanceof Tank) System.out.println(o);
     }
 
     public void paint(Graphics g) {
@@ -46,7 +66,11 @@ public class GameModel {
             objects.get(i).paint(g);
         }
 
-
+        for (int i = 0; i < objects.size() - 1; i++) {
+            for (int j = i+1; j < objects.size(); j++) {
+                chain.collide(objects.get(i), objects.get(j));
+            }
+        }
 
     }
 

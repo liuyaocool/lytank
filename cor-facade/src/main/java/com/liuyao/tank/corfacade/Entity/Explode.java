@@ -1,13 +1,14 @@
-package com.liuyao.tank.corfacade;
+package com.liuyao.tank.corfacade.Entity;
 
 import com.liuyao.tank.core.ImgUtil;
 import com.liuyao.tank.core.TkGroup;
+import com.liuyao.tank.corfacade.GameModel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 // 爆炸
-public class Explode extends GameObject{
+public class Explode extends GameObject {
 
     public static BufferedImage[] explodes = new BufferedImage[16];
     public static final int WIDTH, HEIGHT;
@@ -22,8 +23,7 @@ public class Explode extends GameObject{
     protected TkGroup group;
 
     public Explode(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
     }
 
     @Override

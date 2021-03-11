@@ -1,13 +1,14 @@
-package com.liuyao.tank.corfacade;
+package com.liuyao.tank.corfacade.Entity;
 
 import com.liuyao.tank.core.ImgUtil;
 import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
+import com.liuyao.tank.corfacade.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Bullet extends GameObject{
+public class Bullet extends GameObject {
 
     public static BufferedImage bulletU = ImgUtil.readImg("img/tank/Bullet.png"),
             bulletL = ImgUtil.rotateImage(bulletU, -90),
@@ -15,14 +16,12 @@ public class Bullet extends GameObject{
             bulletD = ImgUtil.rotateImage(bulletU, 180);
     private static final int SPEED = 20;
 
-
     public boolean living = true;
     public TkGroup group;
     public TkDir dir;
 
     public Bullet(int x, int y, TkDir dir, TkGroup group) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dir = dir;
         this.group = group;
     }
@@ -60,7 +59,7 @@ public class Bullet extends GameObject{
     //碰撞检测
     public void collideWith(Tank tank) {
         if (this.group == tank.group) return;
-        if (this.rectangle.intersects(tank.rectangle)){
+        if (this.rect.intersects(tank.rect)){
             tank.die();
             this.die();
             GameModel.getInstance().add(new Explode(this.x, this.y));

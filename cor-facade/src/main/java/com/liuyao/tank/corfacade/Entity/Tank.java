@@ -1,8 +1,10 @@
-package com.liuyao.tank.corfacade;
+package com.liuyao.tank.corfacade.Entity;
 
 import com.liuyao.tank.core.ImgUtil;
 import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
+import com.liuyao.tank.corfacade.GameModel;
+import com.liuyao.tank.corfacade.TankFrame;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -23,6 +25,7 @@ public class Tank extends GameObject {
     public boolean living = true;
     public TkGroup group;
 
+    private int oldx, oldy;
     private TkDir dir;
     private boolean moving = true;
     private Random random = new Random();
@@ -33,8 +36,9 @@ public class Tank extends GameObject {
     public void setMoving(boolean moving) { this.moving = moving; }
 
     public Tank(int x, int y, TkDir dir, TkGroup group) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
+        this.oldx = x;
+        this.oldy = y;
         this.dir = dir;
         this.group = group;
         if (TkGroup.GOOD == this.group){
@@ -77,6 +81,8 @@ public class Tank extends GameObject {
 
     private void move() {
         if (!moving) return;
+        oldx = this.x;
+        oldy = this.y;
         switch (dir) {
             case LEFT: x -= SPEED; break;
             case RIGHT: x += SPEED; break;
@@ -91,7 +97,11 @@ public class Tank extends GameObject {
         boundsCheck();
 
         updateRect();
+    }
 
+    public void back(){
+        this.x = oldx;
+        this.y = oldy;
     }
 
     private void boundsCheck() {
@@ -117,8 +127,7 @@ public class Tank extends GameObject {
         }
         int bx = tank.x + tank.width/2 - bimg.getWidth()/2;
         int by = tank.y + tank.height/2 - bimg.getHeight()/2;
-        Bullet b = new Bullet(bx, by, tank.getDir(), tank.group);
-        GameModel.getInstance().add(b);
+        new Bullet(bx, by, tank.getDir(), tank.group);
     }
 
     public void die(){
