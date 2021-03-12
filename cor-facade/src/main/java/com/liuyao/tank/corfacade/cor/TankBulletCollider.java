@@ -4,6 +4,7 @@ import com.liuyao.tank.corfacade.Entity.Bullet;
 import com.liuyao.tank.corfacade.Entity.Explode;
 import com.liuyao.tank.corfacade.Entity.GameObject;
 import com.liuyao.tank.corfacade.Entity.Tank;
+import com.liuyao.tank.corfacade.GameModel;
 
 public class TankBulletCollider implements Collider {
     @Override
@@ -14,7 +15,7 @@ public class TankBulletCollider implements Collider {
             if (t.group != b.group && t.rect.intersects(b.rect)){
                 t.die();
                 b.die();
-                new Explode(t.x, t.y);
+                GameModel.getInstance().add(new Explode(t.x, t.y));
                 return true;
             }
         } else if (o1 instanceof Bullet && o2 instanceof Tank) {

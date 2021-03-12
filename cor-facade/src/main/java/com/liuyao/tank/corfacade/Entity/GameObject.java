@@ -12,7 +12,6 @@ public abstract class GameObject {
     public GameObject(int x, int y) {
         this.x = x;
         this.y = y;
-        GameModel.getInstance().add(this);
     }
 
     protected void updateRect(){

@@ -32,7 +32,7 @@ public class GameModel {
         int tankcount = Integer.parseInt(PropertyMgr.getProperty("initTankCount"));
         // 初始化敌方坦克
         for (int i = 0; i < tankcount; i++) {
-            new Tank(100 + i * 80, 100, TkDir.DOWN, TkGroup.BAD);
+            GameModel.getInstance().add(new Tank(100 + i * 80, 100, TkDir.DOWN, TkGroup.BAD));
         }
     }
 
@@ -46,7 +46,6 @@ public class GameModel {
 
     public void remove(GameObject o) {
         boolean remove = objects.remove(o);
-        if (remove && o instanceof Tank) System.out.println(o);
     }
 
     public void paint(Graphics g) {

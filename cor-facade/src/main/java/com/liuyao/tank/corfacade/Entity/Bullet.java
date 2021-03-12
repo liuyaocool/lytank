@@ -56,16 +56,6 @@ public class Bullet extends GameObject {
         if (x < 0 || y < 0 || x > TankFrame.GAME_WIDTH || y > TankFrame.GAME_HEIGHT) living = false;
     }
 
-    //碰撞检测
-    public void collideWith(Tank tank) {
-        if (this.group == tank.group) return;
-        if (this.rect.intersects(tank.rect)){
-            tank.die();
-            this.die();
-            GameModel.getInstance().add(new Explode(this.x, this.y));
-        }
-    }
-
     public void die(){
         this.living = false;
     };

@@ -1,6 +1,6 @@
 package com.liuyao.tank.corfacade;
 
-public class Start {
+public class FacadeStart {
 
     /**
      * 门面 又叫 外观 facade 对外同一
