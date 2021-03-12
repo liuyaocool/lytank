@@ -1,7 +1,5 @@
 package com.liuyao.tank.corfacade.Entity;
 
-import com.liuyao.tank.corfacade.GameModel;
-
 import java.awt.*;
 
 public abstract class GameObject {

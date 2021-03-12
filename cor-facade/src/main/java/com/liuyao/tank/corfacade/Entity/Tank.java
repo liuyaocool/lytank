@@ -5,6 +5,8 @@ import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
 import com.liuyao.tank.corfacade.GameModel;
 import com.liuyao.tank.corfacade.TankFrame;
+import com.liuyao.tank.corfacade.decorator.LineDecorator;
+import com.liuyao.tank.corfacade.decorator.RectDecorator;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -128,6 +130,8 @@ public class Tank extends GameObject {
         int bx = tank.x + tank.width/2 - bimg.getWidth()/2;
         int by = tank.y + tank.height/2 - bimg.getHeight()/2;
         GameModel.getInstance().add(new Bullet(bx, by, tank.getDir(), tank.group));
+//        GameModel.getInstance().add(new LineDecorator(new RectDecorator(
+//                new Bullet(bx, by, tank.getDir(), tank.group))));
     }
 
     public void die(){

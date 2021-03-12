@@ -9,6 +9,9 @@ public class FacadeStart {
      * 此二者可以是一个人
      *
      * 责任链
+     *
+     * 装饰着 decorator
+     *
      * @param args
      */
     public static void main(String[] args) {
