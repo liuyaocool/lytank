@@ -1,6 +1,6 @@
 package com.liuyao.tank.corfacade.cor;
 
-import com.liuyao.tank.corfacade.Entity.GameObject;
+import com.liuyao.tank.corfacade.entity.GameObject;
 
 public interface Collider {
     // 撞上 返回true

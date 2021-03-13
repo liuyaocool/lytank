@@ -1,12 +1,10 @@
-package com.liuyao.tank.corfacade.Entity;
+package com.liuyao.tank.corfacade.entity;
 
 import com.liuyao.tank.core.ImgUtil;
 import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
 import com.liuyao.tank.corfacade.GameModel;
 import com.liuyao.tank.corfacade.TankFrame;
-import com.liuyao.tank.corfacade.decorator.LineDecorator;
-import com.liuyao.tank.corfacade.decorator.RectDecorator;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -135,7 +133,7 @@ public class Tank extends GameObject {
 //                new Bullet(bx, by, tank.getDir(), tank.group))));
     }
 
-    public void die(){
+    public void die() {
         this.living = false;
     };
 

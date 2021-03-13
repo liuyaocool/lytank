@@ -1,4 +1,4 @@
-package com.liuyao.tank.corfacade.Entity;
+package com.liuyao.tank.corfacade.entity;
 
 import com.liuyao.tank.core.ImgUtil;
 import com.liuyao.tank.core.TkDir;

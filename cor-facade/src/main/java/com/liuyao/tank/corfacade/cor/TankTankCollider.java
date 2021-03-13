@@ -1,7 +1,7 @@
 package com.liuyao.tank.corfacade.cor;
 
-import com.liuyao.tank.corfacade.Entity.GameObject;
-import com.liuyao.tank.corfacade.Entity.Tank;
+import com.liuyao.tank.corfacade.entity.GameObject;
+import com.liuyao.tank.corfacade.entity.Tank;
 
 public class TankTankCollider implements Collider {
     @Override

@@ -3,8 +3,8 @@ package com.liuyao.tank.corfacade;
 import com.liuyao.tank.core.PropertyMgr;
 import com.liuyao.tank.core.TkDir;
 import com.liuyao.tank.core.TkGroup;
-import com.liuyao.tank.corfacade.Entity.GameObject;
-import com.liuyao.tank.corfacade.Entity.Tank;
+import com.liuyao.tank.corfacade.entity.GameObject;
+import com.liuyao.tank.corfacade.entity.Tank;
 import com.liuyao.tank.corfacade.cor.ColliderChain;
 
 import java.awt.*;

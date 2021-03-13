@@ -1,9 +1,9 @@
 package com.liuyao.tank.corfacade.cor;
 
-import com.liuyao.tank.corfacade.Entity.Bullet;
-import com.liuyao.tank.corfacade.Entity.Explode;
-import com.liuyao.tank.corfacade.Entity.GameObject;
-import com.liuyao.tank.corfacade.Entity.Tank;
+import com.liuyao.tank.corfacade.entity.Bullet;
+import com.liuyao.tank.corfacade.entity.Explode;
+import com.liuyao.tank.corfacade.entity.GameObject;
+import com.liuyao.tank.corfacade.entity.Tank;
 import com.liuyao.tank.corfacade.GameModel;
 
 public class TankBulletCollider implements Collider {

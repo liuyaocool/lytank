@@ -1,6 +1,6 @@
 package com.liuyao.tank.corfacade.decorator;
 
-import com.liuyao.tank.corfacade.Entity.GameObject;
+import com.liuyao.tank.corfacade.entity.GameObject;
 
 import java.awt.*;
 

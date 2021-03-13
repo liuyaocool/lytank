@@ -1,4 +1,4 @@
-package com.liuyao.tank.corfacade.Entity;
+package com.liuyao.tank.corfacade.entity;
 
 import java.awt.*;
 

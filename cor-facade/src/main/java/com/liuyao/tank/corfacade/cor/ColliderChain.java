@@ -1,7 +1,7 @@
 package com.liuyao.tank.corfacade.cor;
 
 import com.liuyao.tank.core.PropertyMgr;
-import com.liuyao.tank.corfacade.Entity.GameObject;
+import com.liuyao.tank.corfacade.entity.GameObject;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
