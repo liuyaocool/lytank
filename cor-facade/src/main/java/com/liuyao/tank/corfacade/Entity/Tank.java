@@ -130,6 +130,7 @@ public class Tank extends GameObject {
         int bx = tank.x + tank.width/2 - bimg.getWidth()/2;
         int by = tank.y + tank.height/2 - bimg.getHeight()/2;
         GameModel.getInstance().add(new Bullet(bx, by, tank.getDir(), tank.group));
+        // 装饰者模式
 //        GameModel.getInstance().add(new LineDecorator(new RectDecorator(
 //                new Bullet(bx, by, tank.getDir(), tank.group))));
     }
