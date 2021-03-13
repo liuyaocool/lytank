@@ -7,6 +7,8 @@ public class MainFlyweight {
      *  池化思想
      *  String 常量池
      *
+     * 马老师应用 子弹池
+     *
      * 与composite同用
      *  两个不同的对象组合成一个东西 放到池子里
      * @param args
