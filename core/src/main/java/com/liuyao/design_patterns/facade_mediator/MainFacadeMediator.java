@@ -8,6 +8,8 @@ public class MainFacadeMediator {
      *  消息队列
      *
      * 此二者可以使一个人
+     *
+     * 见tanke GameModel.java
      * @param args
      */
     public static void main(String[] args) {
