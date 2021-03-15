@@ -1,8 +1,9 @@
 package com.liuyao.tank.corfacade.entity;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class GameObject {
+public abstract class GameObject implements Serializable {
 
     public int x, y, width, height;
     public Rectangle rect = new Rectangle();

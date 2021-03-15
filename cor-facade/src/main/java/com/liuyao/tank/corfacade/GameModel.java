@@ -8,6 +8,7 @@ import com.liuyao.tank.corfacade.entity.Tank;
 import com.liuyao.tank.corfacade.cor.ColliderChain;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,8 @@ public class GameModel {
 
     public Tank myTank;
 
-    private List<GameObject> objects = new ArrayList<>();
+    // transient 关键字 当序列化的时候会排除此属性 但反序列化则不会加载到此属性的内容
+    private /*transient*/ List<GameObject> objects = new ArrayList<>();
     ColliderChain chain = new ColliderChain();
 
     private GameModel(){}
@@ -73,4 +75,33 @@ public class GameModel {
 
     }
 
+    private final String savePath = "c:/tmp/tank.data";
+    public void save() {
+        File f = new File(savePath);
+        try {
+            FileOutputStream fos = new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(myTank);
+            oos.writeObject(objects);
+            // 或者直接把GameModel序列化
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // fos.close()
+            // oos.close()
+        }
+    }
+
+    public void load() {
+        File f = new File(savePath);
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+            myTank = (Tank) ois.readObject();
+            objects = (List<GameObject>) ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
