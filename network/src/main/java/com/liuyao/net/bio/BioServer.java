@@ -14,6 +14,7 @@ public class BioServer {
 
             while (true) {
                 Socket s = ss.accept();
+                System.out.println("a client connect.");
 
                 new Thread(() -> {
                     byte[] bytes = new byte[1024];
