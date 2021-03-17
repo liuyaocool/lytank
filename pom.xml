@@ -20,7 +20,7 @@
         <module>normal</module>
         <module>factory-strategy</module>
         <module>cor-facade</module>
-        <!-- <module>factory-strategy</module> -->
+        <module>network</module>
     </modules>
 
     <dependencies>
