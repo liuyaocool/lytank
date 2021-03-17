@@ -39,6 +39,7 @@ public class NIOHTTPServer {
 
                 while (it.hasNext()) {
                     SelectionKey key = it.next();
+                    it.remove();
                     if (key.isAcceptable()) {
                         // 如果有连接 建立通道 注册到selector
                         SocketChannel channel = this.ssc.accept();
