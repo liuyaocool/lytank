@@ -4,11 +4,12 @@ import java.util.Random;
 
 public class Tanko{
 
-    public void move() {
+    public String move() {
         try {
             Thread.sleep(new Random().nextInt(10000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return "move";
     }
 }
